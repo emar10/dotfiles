@@ -1,0 +1,6 @@
+gitconfig
+gitignore_global
+mpdconf
+tmux.conf
+vimrc
+zshrc
