@@ -20,10 +20,10 @@ while read -u 3 f; do
     of="$HOME/.$f"
     if [ -f $of ]; then
         echo "Removing '$of'..."
-        #rm $of
+        rm $of
     fi
 
     # create link
     echo "Creating link from './$f' to '$of'"
-    # ln -s $f $of
+    ln -s $f $of
 done 3<manifest.txt
