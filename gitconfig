@@ -1,0 +1,7 @@
+[user]
+	name = Ethan Martin
+	email = ethan@ethanmartin.net
+[color]
+	ui = auto
+[core]
+	excludesfile = /Users/ethan/.gitignore_global
