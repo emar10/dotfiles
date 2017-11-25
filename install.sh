@@ -25,5 +25,5 @@ while read -u 3 f; do
 
     # create link
     echo "Creating link from './$f' to '$of'"
-    ln -s $of $f
+    ln -s `pwd`/$f $of
 done 3<manifest.txt
