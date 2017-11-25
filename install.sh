@@ -18,7 +18,7 @@ while read -u 3 f; do
     
     # make sure that target does not exist
     of="$HOME/.$f"
-    if [ -f $of ]; then
+    if [ -f $of -o -h $of ]; then
         echo "Removing '$of'..."
         rm $of
     fi
