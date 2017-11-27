@@ -54,8 +54,13 @@ set ruler
 set laststatus=2
 set cursorline
 
-" clickety click, scrolling is cool too
+" scrolling is cool too
 set mouse=a
+set scrolljump=5
+set scrolloff=3
+
+" automagical folding
+set foldenable
 
 " gib gud tabs pl0x
 set tabstop=4
