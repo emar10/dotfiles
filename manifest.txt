@@ -4,3 +4,4 @@ mpdconf
 tmux.conf
 vimrc
 zshrc
+zsh
