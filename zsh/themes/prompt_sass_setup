@@ -10,6 +10,7 @@ EOF
 
 prompt_sass_setup () {
     PROMPT="%{$fg[cyan]%}[%n@%m] %{$fg[blue]%}%1~%{$reset_color%} %(!.#.$) "
+    RPROMPT="%{$fg[green]%}%(?..%{$fg[red]%}%? )%*%{$reset_color%}"
 
     prompt_opts=(bang cr subst percent)
 }
