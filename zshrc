@@ -4,7 +4,7 @@
 ## inital setup stuff
 # paths
 export PATH=$PATH:$HOME/bin
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh-completions $HOME/.zsh/themes/ $fpath)
 
 ## zgen
 source "${HOME}/.zgen/zgen.zsh"
@@ -27,9 +27,11 @@ fi
 
 ## built-in plugins
 autoload -Uz promptinit; promptinit
+autoload colors; colors
 
 ## theme
-prompt redhat
+prompt sass
+zle_highlight=(default:bold)
 
 zstyle ':completion:*' menu select
 
