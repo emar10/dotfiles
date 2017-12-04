@@ -28,10 +28,11 @@ Plugin 'tomtom/tcomment_vim'
 "Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
 
-" Completion
+" Completion and Linting
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'w0rp/ale'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
