@@ -9,6 +9,50 @@ let g:os = substitute(system('echo $OSTYPE'), '\n', '', '')
 " use python3
 set pyxversion=3
 
+"" config
+" pretty colors
+syntax on
+
+" wrapping is for chumps
+set nowrap
+set encoding=utf-8
+
+" line numbers are pretty sweet
+set number
+set ruler
+
+set laststatus=2
+set cursorline
+
+" scrolling is cool too
+set mouse=a
+set scrolljump=5
+set scrolloff=3
+
+" automagical folding
+set foldenable
+
+" gib gud tabs pl0x
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+set autoindent
+
+" Let's try to get rid of that annoying delay with escape
+set timeoutlen=1000
+set ttimeoutlen=10
+
+" Macs have some funkiness with backspace, lemme fix that for ya
+set backspace=indent,eol,start
+
+" Keep buffers around
+set hidden
+
+" 2 spaces for HTML/CSS
+autocmd FileType html,css set tabstop=2 shiftwidth=2
+
+
 "" BEGIN BUNDLING OUR VUNDLE ""
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -57,50 +101,7 @@ filetype plugin indent on
 " :PluginClean      - gets rid of unused plugins
 
 
-"" config
-" pretty colors
-syntax on
-
-" wrapping is for chumps
-set nowrap
-set encoding=utf-8
-
-" line numbers are pretty sweet
-set number
-set ruler
-
-set laststatus=2
-set cursorline
-
-" scrolling is cool too
-set mouse=a
-set scrolljump=5
-set scrolloff=3
-
-" automagical folding
-set foldenable
-
-" gib gud tabs pl0x
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set expandtab
-set autoindent
-
-" Let's try to get rid of that annoying delay with escape
-set timeoutlen=1000
-set ttimeoutlen=10
-
-" Macs have some funkiness with backspace, lemme fix that for ya
-set backspace=indent,eol,start
-
-" Keep buffers around
-set hidden
-
-" 2 spaces for HTML/CSS
-autocmd FileType html,css set tabstop=2 shiftwidth=2
-
-"" Plugin Options
+" Plugin Options
 " Airline
 let g:airline_highlighting_cache = 1
 
