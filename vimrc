@@ -6,6 +6,9 @@ set nocompatible
 " what OS are we on?
 let g:os = substitute(system('echo $OSTYPE'), '\n', '', '')
 
+" use python3
+set pyxversion=3
+
 "" BEGIN BUNDLING OUR VUNDLE ""
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
