@@ -116,14 +116,14 @@ if g:os =~ "darwin.*"
 endif
 
 " Javacomplete2
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-let g:deoplete#omni#input_patterns.java = [
-    \'[^. \t0-9]\.\w*',
-    \'[^. \t0-9]\->\w*',
-    \'[^. \t0-9]\::\w*',
-    \]
-let g:deoplete#omni#input_patterns.jsp = ['[^. \t0-9]\.\w*']
-let g:deoplete#ignore_sources._ = ['javacomplete2']
+"autocmd FileType java setlocal omnifunc=javacomplete#Complete
+"let g:deoplete#omni#input_patterns.java = [
+"    \'[^. \t0-9]\.\w*',
+"    \'[^. \t0-9]\->\w*',
+"    \'[^. \t0-9]\::\w*',
+"    \]
+"let g:deoplete#omni#input_patterns.jsp = ['[^. \t0-9]\.\w*']
+"let g:deoplete#ignore_sources._ = ['javacomplete2']
 
 "" Keybindings
 " NERDTree
