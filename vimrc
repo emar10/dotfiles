@@ -1,5 +1,6 @@
 """ .vimrc, Sasquatch flavored. Mmm.
 
+"" config
 " nobody wants to be in compatible mode
 set nocompatible
 
@@ -9,7 +10,6 @@ let g:os = substitute(system('echo $OSTYPE'), '\n', '', '')
 " use python3
 set pyxversion=3
 
-"" config
 " pretty colors
 syntax on
 
@@ -30,7 +30,7 @@ set scrolljump=5
 set scrolloff=3
 
 " automagical folding
-set foldenable
+"set foldenable
 
 " gib gud tabs pl0x
 set tabstop=4
@@ -38,8 +38,9 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set autoindent
+filetype indent plugin on
 
-" Let's try to get rid of that annoying delay with escape
+" escape sequence length
 set timeoutlen=1000
 set ttimeoutlen=10
 
@@ -53,55 +54,44 @@ set hidden
 autocmd FileType html,css set tabstop=2 shiftwidth=2
 
 
-"" BEGIN BUNDLING OUR VUNDLE ""
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"" LET'S PLUG SOME PLUGINS, KIDDOS ""
+call plug#begin('~/.vim/plugged')
+" Plug 'account/reponame' [{'rtp': 'subdir/'}] [{'as': 'newname'}]
 
-" Vundle should update Vundle
-Plugin 'VundleVim/Vundle.vim'
-" GitHub hosted plugin [plugin in subdirectory] [name conflict]
-" Plugin 'account/reponame' [{'rtp': 'subdir/'}] [{'name': 'newname'}]
-" other Git
-" Plugin 'git://hostname/repo.git'
-
-" local file
-" Plugin 'file:///path/to/plugin'
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'godlygeek/tabular'
-Plugin 'tomtom/tcomment_vim'
-"Plugin 'terryma/vim-multiple-cursors'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'godlygeek/tabular'
+Plug 'tomtom/tcomment_vim'
+"Plug 'terryma/vim-multiple-cursors'
+Plug 'jiangmiao/auto-pairs'
 
 " Completion and Linting
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'w0rp/ale'
+"Plug 'ajh17/VimCompletesMe'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'Shougo/deoplete.nvim'
+Plug 'w0rp/ale'
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-airline/vim-airline'
-Plugin 'fidian/hexmode'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'fidian/hexmode'
 
 " Language Support
-Plugin 'zchee/deoplete-jedi'
-Plugin 'zchee/deoplete-clang'
-Plugin 'Shougo/neoinclude.vim'
-Plugin 'artur-shaik/vim-javacomplete2'
+Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-clang'
+Plug 'Shougo/neoinclude.vim'
+Plug 'artur-shaik/vim-javacomplete2'
 
-call vundle#end()
-filetype plugin indent on
-"" OUR VUNDLE IS DUNDLE, WE'RE READY TO RUNDLE ""
-"" Quick Vundle Cheatsheet from the GitHub repo""
-" :PluginInstall    - installs plugins
-" :PluginUpdate     - fetches updates for plugins
-" :PluginList       - shows active plugins
-" :PluginClean      - gets rid of unused plugins
+call plug#end()
+"" PLUGS ARE PLUGGED, WE'RE READY TO PLARTY ""
+" :PlugInstall    - installs plugins
+" :PlugUpdate     - fetches updates for plugins
+" :PlugClean      - gets rid of unused plugins
+" :PlugUpgrade    - upgrade vim-plug
+" :PlugStatus     - check plugin status
 
 
-" Plugin Options
+"" Plugin Options
 " Airline
 let g:airline_highlighting_cache = 1
 
@@ -110,7 +100,6 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_refresh_always = 1
-let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns',{})
 let g:deoplete#ignore_sources = {}
 
 " Clang
