@@ -2,9 +2,10 @@
 # first installs Vundle for Vim and zgen for zsh, if not present
 # then creates links for all filenames listed in manifest.txt to the home directory
 
-if [ ! -e "${HOME}/.vim/bundle/Vundle.vim" ]; then
-    echo "Vundle not present, cloning..."
-    git clone https://github.com/VundleVim/Vundle.vim "${HOME}/.vim/bundle/Vundle.vim"
+if [ ! -e "${HOME}/.vim/autoload/plug.vim" ]; then
+    echo "Vim-Plug not present, installing..."
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 if [ ! -e "${HOME}/.zgen/zgen.zsh" ]; then
