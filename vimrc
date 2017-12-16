@@ -53,6 +53,15 @@ set hidden
 " 2 spaces for HTML/CSS
 autocmd FileType html,css set tabstop=2 shiftwidth=2
 
+" Undo, backup, and swap locations
+set dir=~/.vim/swap//,/var/tmp//,/tmp//,.
+
+set backupdir=~/.vim/backup//,.
+set backup
+
+set undodir=~/.vim/undo//,.
+set undofile
+
 
 "" LET'S PLUG SOME PLUGINS, KIDDOS ""
 call plug#begin('~/.vim/plugged')

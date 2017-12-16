@@ -8,6 +8,21 @@ if [ ! -e "${HOME}/.vim/autoload/plug.vim" ]; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+if [ ! -e "${HOME}/.vim/backup" ]; then
+    echo "Creating vim backup directory..."
+    mkdir -p $HOME/.vim/backup
+fi
+
+if [ ! -e "${HOME}/.vim/undo" ]; then
+    echo "Creating vim swap directory..."
+    mkdir -p $HOME/.vim/undo
+fi
+
+if [ ! -e "${HOME}/.vim/swap" ]; then
+    echo "Creating vim swap directory..."
+    mkdir -p $HOME/.vim/swap
+fi
+
 if [ ! -e "${HOME}/.zgen/zgen.zsh" ]; then
     echo "Zgen not present, cloning..."
     git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
