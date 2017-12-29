@@ -75,21 +75,21 @@ Plug 'tomtom/tcomment_vim'
 Plug 'jiangmiao/auto-pairs'
 
 " Completion and Linting
-"Plug 'ajh17/VimCompletesMe'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'Shougo/deoplete.nvim'
-Plug 'w0rp/ale'
+Plug 'ajh17/VimCompletesMe'
+"Plug 'roxma/nvim-yarp'
+"Plug 'roxma/vim-hug-neovim-rpc'
+"Plug 'Shougo/deoplete.nvim'
+"Plug 'w0rp/ale'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'fidian/hexmode'
 
 " Language Support
-Plug 'zchee/deoplete-jedi'
-Plug 'zchee/deoplete-clang'
-Plug 'Shougo/neoinclude.vim'
-Plug 'artur-shaik/vim-javacomplete2'
+"Plug 'zchee/deoplete-jedi'
+"Plug 'zchee/deoplete-clang'
+"Plug 'Shougo/neoinclude.vim'
+"Plug 'artur-shaik/vim-javacomplete2'
 
 call plug#end()
 "" PLUGS ARE PLUGGED, WE'RE READY TO PLARTY ""
@@ -105,17 +105,17 @@ call plug#end()
 let g:airline_highlighting_cache = 1
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#ignore_sources = {}
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_smart_case = 1
+"let g:deoplete#enable_ignore_case = 1
+"let g:deoplete#enable_refresh_always = 1
+"let g:deoplete#ignore_sources = {}
 
 " Clang
-if g:os =~ "darwin.*"
-    let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
-    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.0/lib/clang/5.0.0/include/'
-endif
+"if g:os =~ "darwin.*"
+"    let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
+"    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.0/lib/clang/5.0.0/include/'
+"endif
 
 " Javacomplete2
 "autocmd FileType java setlocal omnifunc=javacomplete#Complete
