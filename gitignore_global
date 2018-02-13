@@ -3,6 +3,10 @@
 *.iml
 out/
 
+# CMake
+CMakeLists.txt
+cmake-build-debug/
+
 # General
 .DS_Store
 .AppleDouble

@@ -3,7 +3,7 @@
 
 ## inital setup stuff
 # paths
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bin:$HOME/library/Android/sdk/platform-tools
 fpath=(/usr/local/share/zsh-completions $HOME/.zsh/themes/ $fpath)
 
 ## zgen
@@ -33,6 +33,9 @@ autoload colors; colors
 prompt sass
 zle_highlight=(default:bold)
 
+## completions
+autoload -Uz compinit
+compinit
 zstyle ':completion:*' menu select
 
 ## assorted variables and sundries
