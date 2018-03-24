@@ -4,7 +4,6 @@
 out/
 
 # CMake
-CMakeLists.txt
 cmake-build-debug/
 
 # General
