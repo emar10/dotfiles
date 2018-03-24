@@ -6,3 +6,4 @@ vimrc
 zshrc
 zsh
 ncmpcpp
+config/nvim/init.vim

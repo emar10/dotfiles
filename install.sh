@@ -1,7 +1,8 @@
 #!/bin/bash
-# first installs Vundle for Vim and zgen for zsh, if not present
+# first sets up directories and plugin managers,
 # then creates links for all filenames listed in manifest.txt to the home directory
 
+# Vim dirs and Vim-Plug
 if [ ! -e "${HOME}/.vim/autoload/plug.vim" ]; then
     echo "Vim-Plug not present, installing..."
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -23,6 +24,20 @@ if [ ! -e "${HOME}/.vim/swap" ]; then
     mkdir -p $HOME/.vim/swap
 fi
 
+# Nvim dirs and minpac
+if [ ! -e "${HOME}/.config/nvim" ]; then
+    echo "Creating nvim directory..."
+    mkdir -p $HOME/.config/nvim
+fi
+
+if [ ! -e "${HOME}/.config/nvim/pack/minpac" ]; then
+    echo "minpac not present, installing..."
+    mkdir -p $HOME/.config/nvim/pack/minpac/opt
+    git clone https://github.com/k-takata/minpac.git \
+        $HOME/.config/nvim/pack/minpac/opt/minpac
+fi
+
+# Zgen for zsh
 if [ ! -e "${HOME}/.zgen/zgen.zsh" ]; then
     echo "Zgen not present, cloning..."
     git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
