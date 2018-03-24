@@ -14,13 +14,14 @@ audio_output {
     type                "osx"
     name                "CoreAudio"
     mixer_type          "software"
+    buffer_time         "50000"
 }
 
 audio_output {
     type                "fifo"
     name                "my_fifo"
     path                "/tmp/mpd.fifo"
-    format              "44100:16:2"
+    format              "44100:16:1"
 }
 
 decoder {
