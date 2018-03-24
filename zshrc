@@ -3,7 +3,7 @@
 
 ## inital setup stuff
 # paths
-export PATH=$PATH:$HOME/bin:$HOME/library/Android/sdk/platform-tools
+export PATH=$HOME/bin:$PATH:$HOME/library/Android/sdk/platform-tools
 fpath=(/usr/local/share/zsh-completions $HOME/.zsh/themes/ $fpath)
 
 ## zgen
