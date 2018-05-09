@@ -3,8 +3,16 @@
 *.iml
 out/
 
+# Eclipse
+.classpath
+.project
+.settings/
+
 # CMake
 cmake-build-debug/
+
+# cquery
+compile_commands.json
 
 # General
 .DS_Store
@@ -32,12 +40,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-# Swap
-[._]*.s[a-v][a-z]
-[._]*.sw[a-p]
-[._]s[a-v][a-z]
-[._]sw[a-p]
 
 # Session
 Session.vim
