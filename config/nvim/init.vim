@@ -9,6 +9,10 @@ let g:os = substitute(system('echo $OSTYPE'), '\n', '', '')
 set nocompatible
 
 set nowrap
+set textwidth=0
+if exists('&colorcolumn')
+    set colorcolumn=80
+endif
 set encoding=utf-8
 
 set number
@@ -26,6 +30,9 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 filetype indent plugin on
+
+""" 2 space tab for web stuff because W3 says so
+autocmd Filetype html,css,scss setlocal ts=2 sw=2
 
 "" Hidden buffers are cool
 set hidden
@@ -55,6 +62,7 @@ call minpac#add('vim-airline/vim-airline-themes')
 
 call minpac#add('tpope/vim-obsession')
 call minpac#add('junegunn/goyo.vim')
+call minpac#add('junegunn/limelight.vim')
 
 """ Completion Engine
 "call minpac#add('roxma/nvim-completion-manager')  " ncm is unmaintained :(
@@ -102,12 +110,14 @@ function! s:goyo_enter()
     set noshowmode
     set wrap
     set linebreak
+    Limelight
 endfunction
 
 function! s:goyo_leave()
     set showmode
     set nowrap
     set linebreak
+    Limelight!
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -117,6 +127,7 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 if has('gui_vimr')
     "" Colors
     colorscheme deus
+    set background=dark
     let g:airline_theme = 'deus'
     let g:terminal_color_0 = '#2C323B'
     let g:terminal_color_1 = '#fb4934'
