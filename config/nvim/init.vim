@@ -80,11 +80,12 @@ let g:lightline.separator = { 'left': '', 'right': '' }
 let g:lightline.subseparator = { 'left': '', 'right': '' }
 let g:lightline.component = {
     \ 'lineinfo': "\ue0a1" . ' %l/%L : %2v',
-    \ 'linepercent': '%P'
+    \ 'linepercent': '%P',
+    \ 'close': "%999X \uf00d ",
+    \ 'gitbranch': '%{fugitive#head() == "" ? "" : "\ue0a0 ".fugitive#head() }'
     \ }
 let g:lightline.component_function = {
     \ 'githunk': 'LightlineHunk',
-    \ 'gitbranch': 'LightlineBranch',
     \ 'readmodified': 'LightlineReadmodified'
     \ }
 let g:lightline.active = {
@@ -95,15 +96,6 @@ let g:lightline.active = {
     \            ['filetype'] ]
     \ }
 
-" Git Branch
-function! LightlineBranch()
-    if empty(fugitive#head())
-        return ''
-    endif
-
-    return "\ue0a0 " . fugitive#head()
-endfunction
- 
 " Git hunks
 function! LightlineHunk()
     if empty(fugitive#head())
