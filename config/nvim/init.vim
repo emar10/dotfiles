@@ -14,13 +14,16 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 "Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-startify'
 
 "" Language Support / Building
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
+Plug 'igankevich/mesonic'
 
 "" Misc Tools
 Plug 'junegunn/vim-easy-align'
@@ -50,16 +53,18 @@ set autoindent
 set smartindent
 set tabstop=4
 set shiftwidth=4
+au! FileType html,css,python setlocal sw=2 ts=2
 
 "set lazyredraw
 set backspace=indent,eol,start
 
 set wildmenu
-set wildmode=longest,full
+set wildmode=full
 
 set hidden
 
 "" colors
+set termguicolors
 set background=dark
 colorscheme gruvbox
 
@@ -68,6 +73,12 @@ au! TermOpen * setlocal nonumber nocursorline
 
 
 """ Plugin settings
+
+"" netrw / vim-vinegar
+let g:netrw_liststyle = 3
+"let g:netrw_banner = 0
+"let g:netrw_browse_split = 1
+"let g:netrw_winsize = 25
 
 "" Airline
 "let g:airline#extensions#tabline#enabled = 1
@@ -79,10 +90,10 @@ let g:lightline.colorscheme = 'gruvbox'
 let g:lightline.separator = { 'left': '', 'right': '' }
 let g:lightline.subseparator = { 'left': '', 'right': '' }
 let g:lightline.component = {
-    \ 'lineinfo': "\ue0a1" . ' %l/%L : %2v',
+    \ 'lineinfo': ' %l/%L : %2v',
     \ 'linepercent': '%P',
     \ 'close': "%999X \uf00d ",
-    \ 'gitbranch': '%{fugitive#head() == "" ? "" : "\ue0a0 ".fugitive#head() }'
+    \ 'gitbranch': '%{fugitive#head() == "" ? "" : " ".fugitive#head() }'
     \ }
 let g:lightline.component_function = {
     \ 'githunk': 'LightlineHunk',
@@ -120,13 +131,13 @@ endfunction
 " Readonly
 function! LightlineReadmodified()
     if &modified && !&readonly
-        return "\uf0fe"
+        return ""
     elseif !&modified && !&readonly
         return ''
     elseif !&modified && &readonly
-        return "\uf83d"
+        return ""
     else  " modified and readonly
-        return "\ufafa"
+        return "﫺"
     endif
 endfunction
 
@@ -144,6 +155,28 @@ endfunction
 au! User GoyoEnter nested call <SID>goyo_enter()
 au! User GoyoLeave nested call <SID>goyo_leave()
 
+"" Startify
+let g:startify_session_dir = '~/.local/share/nvim/sessions'
+let g:startify_session_persistence = 1
+let g:startify_change_to_session_root = 1
+let g:startify_change_to_vcs_root = 1
+let g:startify_lists = [
+    \ { 'type': 'sessions',  'header': ['    Sessions']  },
+    \ { 'type': 'bookmarks', 'header': ['    Bookmarks'] },
+    \ { 'type': 'files',     'header': ['    Recents']   }
+    \ ]
+let s:startify_ascii_header = [
+    \ '                                        ▟▙            ',
+    \ '                                        ▝▘            ',
+    \ '██▃▅▇█▆▖  ▗▟████▙▖   ▄████▄   ██▄  ▄██  ██  ▗▟█▆▄▄▆█▙▖',
+    \ '██▛▔ ▝██  ██▄▄▄▄██  ██▛▔▔▜██  ▝██  ██▘  ██  ██▛▜██▛▜██',
+    \ '██    ██  ██▀▀▀▀▀▘  ██▖  ▗██   ▜█▙▟█▛   ██  ██  ██  ██',
+    \ '██    ██  ▜█▙▄▄▄▟▊  ▀██▙▟██▀   ▝████▘   ██  ██  ██  ██',
+    \ '▀▀    ▀▀   ▝▀▀▀▀▀     ▀▀▀▀       ▀▀     ▀▀  ▀▀  ▀▀  ▀▀',
+    \ '',
+    \ ]
+let g:startify_custom_header = map(s:startify_ascii_header +
+            \ startify#fortune#quote(), '"   ".v:val')
 
 """ Function Fun Fest
 function! s:lightline_reload()
@@ -158,8 +191,7 @@ command! LightlineReload call <SID>lightline_reload()
 
 """ Keybindings
 
-"" Tagbar / Nerdtree
-noremap <C-n> :NERDTreeToggle<CR>
-noremap <C-m> :TagbarToggle<CR>
-
+"" Insert mode
+" no carpal tunnel pls
+inoremap jk <esc>
 
