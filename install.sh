@@ -2,39 +2,16 @@
 # first sets up directories and plugin managers,
 # then creates links for all filenames listed in manifest.txt to the home directory
 
-# Vim dirs and Vim-Plug
-if [ ! -e "${HOME}/.vim/autoload/plug.vim" ]; then
-    echo "Vim-Plug not present, installing..."
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
-if [ ! -e "${HOME}/.vim/backup" ]; then
-    echo "Creating vim backup directory..."
-    mkdir -p $HOME/.vim/backup
-fi
-
-if [ ! -e "${HOME}/.vim/undo" ]; then
-    echo "Creating vim swap directory..."
-    mkdir -p $HOME/.vim/undo
-fi
-
-if [ ! -e "${HOME}/.vim/swap" ]; then
-    echo "Creating vim swap directory..."
-    mkdir -p $HOME/.vim/swap
-fi
-
 # Nvim dirs and minpac
 if [ ! -e "${HOME}/.config/nvim" ]; then
     echo "Creating nvim directory..."
     mkdir -p $HOME/.config/nvim
 fi
 
-if [ ! -e "${HOME}/.config/nvim/pack/minpac" ]; then
-    echo "minpac not present, installing..."
-    mkdir -p $HOME/.config/nvim/pack/minpac/opt
-    git clone https://github.com/k-takata/minpac.git \
-        $HOME/.config/nvim/pack/minpac/opt/minpac
+if [ ! -e "${HOME}/.local/share/nvim/site/autoload/plug.vim" ]; then
+    echo "vim-plug not present, installing..."
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 # Zgen for zsh

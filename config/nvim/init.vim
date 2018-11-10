@@ -64,9 +64,9 @@ set wildmode=full
 set hidden
 
 "" colors
-set termguicolors
 set background=dark
 colorscheme gruvbox
+set termguicolors
 
 "" Terminal Settings
 au! TermOpen * setlocal nonumber nocursorline

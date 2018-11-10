@@ -1,9 +1,5 @@
 gitconfig
 gitignore_global
-mpdconf
-tmux.conf
-vimrc
 zshrc
 zsh
-ncmpcpp
 config/nvim/init.vim

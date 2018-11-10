@@ -74,5 +74,3 @@ fi
 export EDITOR=nvim
 export VISUAL=nvim
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
