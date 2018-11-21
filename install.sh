@@ -2,7 +2,7 @@
 # first sets up directories and plugin managers,
 # then creates links for all filenames listed in manifest.txt to the home directory
 
-# Nvim dirs and minpac
+# Nvim dirs and vim-plug
 if [ ! -e "${HOME}/.config/nvim" ]; then
     echo "Creating nvim directory..."
     mkdir -p $HOME/.config/nvim
@@ -14,10 +14,10 @@ if [ ! -e "${HOME}/.local/share/nvim/site/autoload/plug.vim" ]; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-# Zgen for zsh
-if [ ! -e "${HOME}/.zgen/zgen.zsh" ]; then
-    echo "Zgen not present, cloning..."
-    git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+# zplug for zsh
+if [ ! -e "${HOME}/.zplug/init.zsh" ]; then
+    echo "zplug not present, installing..."
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
 
 echo "Symlinking all files from 'manifest.txt' to your home folder..."

@@ -6,36 +6,33 @@
 export PATH=$HOME/bin:$PATH
 fpath=(/usr/local/share/zsh-completions $HOME/.zsh/themes/ $fpath)
 
-## zgen
-source "${HOME}/.zgen/zgen.zsh"
-if ! zgen saved; then
-    ## plugins go here
-    # terminal
-    zgen load 'chrissicool/zsh-256color'
+## zplug
+export ZPLUG_HOME=$HOME/.zplug
+source $ZPLUG_HOME/init.zsh
 
-    # git
-    zgen load 'peterhurford/git-it-on.zsh'
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure", use:pure.zsh, as:theme
 
-    # os-specific things
-    if [[ $OSTYPE == darwin* ]]; then
-        zgen load 'unixorn/tumult.plugin.zsh'
+# let zplug manage itself
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+if ! zplug check --verbose; then
+    printf "Install? [Y/n] "
+    if read -q; then
+        echo; zplug install
     fi
-
-    # we done
-    zgen save
 fi
+
+zplug load
 
 ## built-in plugins
 autoload -Uz promptinit; promptinit
 autoload colors; colors
 
 ## theme
-prompt sass
 zle_highlight=(default:bold)
 
 ## completions
-autoload -Uz compinit
-compinit
 zstyle ':completion:*' menu select
 
 ## assorted variables and sundries
@@ -52,6 +49,9 @@ setopt hist_ignore_all_dups
 # complete from aliases
 setopt COMPLETE_ALIASES
 
+# real champs use vi mode
+bindkey -v
+
 ## pretty colors
 # ls
 if [[ $OSTYPE == darwin* ]]; then
@@ -64,11 +64,6 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30
 
 # tab completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-## pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
 
 # vars
 export EDITOR=nvim
