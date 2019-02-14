@@ -4,4 +4,4 @@
 [color]
 	ui = auto
 [core]
-	excludesfile = /Users/ethan/.gitignore_global
+	excludesfile = $HOME/.gitignore_global

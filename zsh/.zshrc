@@ -45,6 +45,7 @@ SAVEHIST=100
 setopt append_history
 setopt share_history
 setopt hist_ignore_all_dups
+setopt monitor
 
 # complete from aliases
 setopt COMPLETE_ALIASES
