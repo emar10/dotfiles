@@ -46,6 +46,8 @@ Session.vim
 
 # Temporary
 .netrwhist
+.*.swp
+.*.swo
 *~
 # Auto-generated tag files
 tags

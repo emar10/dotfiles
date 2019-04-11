@@ -23,6 +23,7 @@ Plug 'junegunn/vim-plug'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
+Plug 'junegunn/vim-easy-align'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 "" Language support
