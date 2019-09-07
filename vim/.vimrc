@@ -28,6 +28,8 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 "" Language support
 Plug 'lervag/vimtex'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax' 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -68,6 +70,7 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 au! FileType html,css setlocal sw=2 ts=2
+au! FileType nasm,asm setlocal noexpandtab sw=0 ts=8
 
 set backspace=indent,eol,start
 
@@ -75,6 +78,9 @@ set wildmenu
 set wildmode=full
 
 set hidden
+set directory=~/.vim/swap//
+set backupdir=~/.vim/backup//
+set undodir=~/.vim/undo//
 
 set background=dark
 colorscheme gruvbox
