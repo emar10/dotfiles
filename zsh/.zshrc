@@ -4,7 +4,9 @@
 ## inital setup stuff
 # paths
 export PATH=$HOME/bin:$PATH
-fpath=(/usr/local/share/zsh-completions $HOME/.zsh/themes/ $fpath)
+if [[ $OSTYPE == darwin* ]]; then
+    fpath=(/usr/local/share/zsh-completions $HOME/.zsh/themes/ $fpath)
+fi
 
 ## zplug
 export ZPLUG_HOME=$HOME/.zplug
