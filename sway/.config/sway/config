@@ -1,0 +1,198 @@
+### Ethan's Sway Config
+
+## Variables
+set $mod Mod4
+
+# Directions
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Directories
+set $scripts ~/.config/wofi/scripts
+
+# Default Programs
+set $term alacritty
+set $menu wofi -p "Applications" --show drun -i | xargs swaymsg exec --
+
+## Output configuration
+output * bg ~/Pictures/wallpaper.jpg fill
+
+# Clamshell mode
+bindswitch --reload lid:on output eDP-1 disable
+bindswitch --reload lid:off output eDP-1 enable
+
+## Window Options
+gaps inner 20
+gaps outer 10
+
+focus_follows_mouse no
+default_border pixel
+
+# Evil floating on desktop workspace
+for_window [workspace="1: desktop"] floating enable
+
+# Dropdown terminal rules
+for_window [title=^dropdown$] floating enable, move to scratchpad
+
+## Locking and Idle
+# Turn off the display after 600 seconds, and lock after 300 seconds or sleep
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+                lock 'swaylock -f -c 000000' \
+         before-sleep 'swaylock -f -c 000000'
+
+## Input configuration
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+    tap enabled
+    natural_scroll enabled
+}
+
+## Key bindings
+# Spawners, launchers, and reloads, oh my!
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec $menu
+
+# Dropdown terminal
+bindsym $mod+grave [title=^dropdown$] scratchpad show
+
+# Brightness and volume
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+floating_modifier $mod normal
+bindsym $mod+Shift+c reload
+
+bindsym $mod+Shift+e exec $scripts/power.sh
+
+# Focus
+bindsym $mod+a focus parent
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1: desktop
+bindsym $mod+2 workspace number 2: web
+bindsym $mod+3 workspace number 3: work
+bindsym $mod+4 workspace number 4: comms
+bindsym $mod+5 workspace number 5: music
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Move window to workspace
+bindsym $mod+Shift+1 move container to workspace 1: desktop
+bindsym $mod+Shift+2 move container to workspace 2: web
+bindsym $mod+Shift+3 move container to workspace 3: work
+bindsym $mod+Shift+4 move container to workspace 4: comms
+bindsym $mod+Shift+5 move container to workspace 5: music
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Split modes
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Layouts
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen
+
+# Tiling
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    # position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+
+    # colors {
+    #     statusline #ffffff
+    #     background #323232
+    #     inactive_workspace #32323200 #32323200 #5c5c5c
+    # }
+    swaybar_command waybar
+}
+
+# Autostart
+exec alacritty -t dropdown
+exec redshift
+
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme 'Nordic'
+    gsettings set org.gnome.desktop.interface icon-theme 'Pop'
+    gsettings set org.gnome.desktop.wm.preferences button-layout :
+}
+
+include /etc/sway/config.d/*
