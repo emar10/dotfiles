@@ -1,4 +1,0 @@
-rofi.combi-modi:    window,drun
-rofi.font:          monospace 12
-rofi.modi:          combi
-rofi.theme:         gruvbox-dark
