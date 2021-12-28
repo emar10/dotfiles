@@ -3,7 +3,7 @@
 # Date: 18 December 2021
 
 ### Output Configuration
-output 'Unknown 0x095F 0x00000000' scale 1.5
+output 'eDP-1' scale 1.5
 
 ### Input configuration
 input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
