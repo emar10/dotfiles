@@ -2,8 +2,12 @@
 # Author: Ethan Martin
 # Date: 18 December 2021
 
+set $laptop 'eDP-1'
+set $dell 'Dell Inc. DELL U2720Q FHQ4V13'
+
 ### Output Configuration
-output 'eDP-1' scale 1.5
+output $laptop scale 1.5
+output $dell scale 1.5
 
 ### Input configuration
 input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
@@ -13,3 +17,10 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
     middle_emulation enabled
     scroll_factor 0.25
 }
+
+### Clamshell Mode
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+exec_always ~/.local/bin/sway-clamshell.sh
+exec_always pkill kanshi; exec kanshi
+

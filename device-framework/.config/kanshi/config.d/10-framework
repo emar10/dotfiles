@@ -1,0 +1,8 @@
+# Framework Laptop kanshi Configuration
+# Date: 29 December 2021
+# Author: Ethan Martin
+
+profile {
+    output "Dell Inc. DELL U2720Q FHQ4V13" enable scale 1.5 position 0,0
+    output "eDP-1" enable scale 1.5 position 2160,0
+}
