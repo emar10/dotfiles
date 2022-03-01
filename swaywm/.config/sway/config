@@ -13,7 +13,7 @@ set $up k
 set $right l
 
 # Applications
-set $term alacritty
+set $term kitty
 set $menu rofi -show drun -modi drun
 
 ### Output configuration

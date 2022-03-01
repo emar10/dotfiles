@@ -11,16 +11,24 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 call plug#begin(stdpath('data') . '/plugged')
 
+"" Libs
+Plug 'nvim-lua/plenary.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
 "" Utilities
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
+Plug 'nvim-telescope/telescope.nvim'
 
-"" LSP support
+"" UI
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'feline-nvim/feline.nvim'
+
+"" Language support
 Plug 'neovim/nvim-lspconfig', { 'tag': '*' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "" Colorschemes
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -40,3 +48,37 @@ set mouse=a
 "" Colorscheme
 set termguicolors
 silent! colorscheme catppuccin
+
+set noshowmode
+
+
+" Plugin Settings
+"" Treesitter
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+
+    highlight = {
+        enable = true
+    }
+}
+EOF
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
+"" Others
+lua << EOF
+require'gitsigns'.setup()
+require'feline'.setup({
+    components = require('catppuccin.core.integrations.feline'),
+})
+EOF
+
+
+" Mappings
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
