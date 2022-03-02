@@ -25,6 +25,7 @@ Plug 'nvim-telescope/telescope.nvim'
 "" UI
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'feline-nvim/feline.nvim'
+Plug 'Pocco81/TrueZen.nvim'
 
 "" Language support
 Plug 'neovim/nvim-lspconfig', { 'tag': '*' }
@@ -41,6 +42,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set autoindent
 
 "" Mouse support
 set mouse=a
@@ -49,7 +51,13 @@ set mouse=a
 set termguicolors
 silent! colorscheme catppuccin
 
+"" Misc
+set nowrap
 set noshowmode
+set number
+set cursorline
+set colorcolumn=80
+set wildmode
 
 
 " Plugin Settings
