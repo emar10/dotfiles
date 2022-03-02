@@ -56,7 +56,6 @@ set nowrap
 set noshowmode
 set number
 set cursorline
-set colorcolumn=80
 set wildmode
 
 
