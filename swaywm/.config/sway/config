@@ -25,11 +25,25 @@ exec swayidle -w \
           timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
           before-sleep 'swaylock -f -c 000000'
 exec_always pkill kanshi; exec kanshi
+exec_always pkill mako; exec mako
 
 ### Window Rules
 # Floating windows
 for_window [app_id="pavucontrol"] floating enable, sticky enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+
+### Theming
+default_border pixel 2
+gaps inner 15
+
+# white #D9E0EE
+# pink #F5C2E7
+# black2 #1E1E2E
+# black4 #575268
+client.focused #C9CBFF #575268 #F5C2E7 #C9CBFF #C9CBFF
+client.unfocused #575268 #1E1E2E #D9E0EE #575268 #575268
+client.focused_inactive #988BA2 #302D41 #D9E0EE #988BA2 #988BA2
+client.urgent #FAE3B0 #FAE3B0 #1E1E2E #FAE3B0 #FAE3B0
 
 ### Key bindings
 # Start a terminal

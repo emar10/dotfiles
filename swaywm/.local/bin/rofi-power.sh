@@ -7,6 +7,14 @@
 # A power menu script to be run by rofi.
 # ex: rofi -show powermenu -modi powermenu:rofi-power.sh
 
+declare -A icons
+icons=(
+    ["logout"]=" "
+    ["suspend"]=" "
+    ["restart"]=" "
+    ["shutdown"]=" "
+)
+
 declare -A options
 options=(
     ["logout"]="Logout"
@@ -25,14 +33,15 @@ commands=(
 
 if [[ $# -eq 0 ]]; then
     # Print options and exit
-    for option in "${options[@]}"; do
-        echo $option
+    for key in "${!options[@]}"; do
+        echo ${icons[$key]} ${options[$key]}
     done
 else
     # Validate and run command for option
-    for option in ${!options[@]}; do
-        if [[ "$@" = "${options[$option]}" ]]; then
+    for option in "${!options[@]}"; do
+        if [[ "$@" == *"${options[$option]}"* ]]; then
             ${commands[$option]}
         fi
     done
 fi
+

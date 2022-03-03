@@ -1,0 +1,11 @@
+# mako Configuration
+# Date: 2 February 2022
+# https://github.com/catppuccin/mako
+
+background-color=#1E1D2F
+text-color=#D9E0EE
+border-color=#96CDFB
+progress-color=over #302D41
+
+[urgency=high]
+border-color=#F8BD96
