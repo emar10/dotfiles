@@ -14,7 +14,7 @@ set $right l
 
 # Applications
 set $term kitty
-set $menu rofi -show drun -modi drun
+set $menu rofi -show drun
 
 ### Output configuration
 output * bg $HOME/Pictures/Wallpapers/wallpaper fill
