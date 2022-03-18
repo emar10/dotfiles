@@ -13,7 +13,7 @@ experience using Sway.
 * `waybar`: Pretty bar.
 * `kitty`: Default terminal, invoked with `Meta` + `Enter`.
 * `rofi`: Default app launcher. Use
-  [https://github.com/lbonn/rofi](lbonn's fork) for now.
+  [lbonn's fork](https://github.com/lbonn/rofi) for now.
 * `pulseaudio` or `pipewire-pulse`: Audio server.
 * `pavucontrol`: Audio control.
 * `networkmanager`: NetworkManager Manages the Network.
