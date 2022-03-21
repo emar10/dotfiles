@@ -8,7 +8,7 @@
 configuration {
     modi: "run,drun";
     lines: 5;
-    font: "Iosevka 14";
+    font: "sans-serif 14";
     show-icons: true;
     /*icon-theme: "Oranchelo";*/
     terminal: "kitty";
