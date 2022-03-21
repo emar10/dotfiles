@@ -14,6 +14,7 @@ set $right l
 
 # Applications
 set $term kitty
+set $dropdown swaymsg "[app_id=dropdown] scratchpad show" || kitty --class dropdown
 set $menu rofi -show drun
 
 ### Output configuration
@@ -26,11 +27,15 @@ exec swayidle -w \
           before-sleep 'swaylock -f -c 000000'
 exec_always pkill kanshi; exec kanshi
 exec_always pkill mako; exec mako
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ### Window Rules
 # Floating windows
 for_window [app_id="pavucontrol"] floating enable, sticky enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+
+# Move dropdown terminals to the scratchpad
+for_window [app_id=dropdown] move to scratchpad; [app_id=dropdown] scratchpad show
 
 ### Theming
 default_border pixel 2
@@ -48,6 +53,9 @@ client.urgent #FAE3B0 #FAE3B0 #1E1E2E #FAE3B0 #FAE3B0
 ### Key bindings
 # Start a terminal
 bindsym $mod+Return exec $term
+
+# Show/Hide dropdown terminal
+bindsym $mod+Grave exec $dropdown
 
 # Kill focused window
 bindsym $mod+Shift+q kill
