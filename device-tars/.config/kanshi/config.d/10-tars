@@ -1,0 +1,8 @@
+# TARS kanshi Configuration
+# Date: 13 April 2022
+# Author: Ethan Martin
+
+profile {
+    output "Dell Inc. DELL U2720Q FHQ4V13" enable scale 1.5 position 0,0
+    output "Unknown Optix MAG27CQ 0000000000001" enable position 2560,0
+}
