@@ -49,6 +49,9 @@ set mouse=a
 
 "" Colorscheme
 set termguicolors
+lua << EOF
+require("catppuccin").setup()
+EOF
 silent! colorscheme catppuccin
 
 "" Misc
@@ -95,6 +98,7 @@ EOF
 lua << EOF
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "all",
+    ignore_install = { "phpdoc" },
 
     highlight = {
         enable = true
@@ -108,8 +112,10 @@ set foldexpr=nvim_treesitter#foldexpr()
 "" Others
 lua << EOF
 require'gitsigns'.setup()
-require'feline'.setup({
-    components = require('catppuccin.core.integrations.feline'),
+local ctp_feline = require('catppuccin.groups.integrations.feline')
+
+require("feline").setup({
+	components = ctp_feline.get(),
 })
 EOF
 
