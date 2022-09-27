@@ -83,15 +83,31 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'rust_analyzer' }
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
+require('lspconfig').rust_analyzer.setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
-  }
-end
+}
+require('lspconfig').texlab.setup {
+    on_attach = on_attach,
+    settings = {
+        texlab = {
+            build = {
+                args = { "-xelatex", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                forwardSearchAfter = true,
+                onSave = true,
+            },
+            chktex = {
+                onEdit = true
+            },
+            forwardSearch = {
+                executable = "zathura",
+                args = { "--synctex-forward", "%l:1:%f", "%p" }
+            }
+        }
+    }
+}
 EOF
 
 "" Treesitter
