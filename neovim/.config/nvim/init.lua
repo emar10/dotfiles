@@ -108,6 +108,7 @@ cmp.setup({
 
 -- Setup telescope
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fh", ":Telescope find_files hidden=true<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true })
 
@@ -133,7 +134,8 @@ cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done {})
 
 -- LSP Config
 local servers = {
-    "sumneko_lua"
+    "sumneko_lua",
+    "marksman"
 }
 
 require('mason').setup()
@@ -156,6 +158,9 @@ require'lspconfig'.sumneko_lua.setup {
             }
         }
     },
+    capabilities = capabilities
+}
+require'lspconfig'.marksman.setup {
     capabilities = capabilities
 }
 
