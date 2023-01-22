@@ -43,6 +43,7 @@ require('packer').startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'feline-nvim/feline.nvim'
     use 'lewis6991/gitsigns.nvim'
+    use 'tpope/vim-fugitive'
     use { "catppuccin/nvim", as = "catppuccin" }
     use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
 
@@ -163,6 +164,7 @@ local servers = {
     "marksman",
     "rust_analyzer",
     "sumneko_lua",
+    "texlab",
 }
 
 require('mason').setup()
@@ -170,7 +172,7 @@ require('mason-lspconfig').setup({
     ensure_installed = servers
 })
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 require'lspconfig'.marksman.setup {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -195,5 +197,17 @@ require'lspconfig'.sumneko_lua.setup {
     },
     capabilities = capabilities,
     on_attach = on_attach,
+}
+require'lspconfig'.texlab.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        texlab = {
+            build = {
+                executable = "tectonic",
+                args = { "-X", "compile", "%f", "--synctex", "--keep-logs", "--keep-intermediates" }
+            }
+        }
+    }
 }
 
