@@ -161,6 +161,7 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = {
+    "clangd",
     "marksman",
     "rust_analyzer",
     "sumneko_lua",
@@ -173,6 +174,7 @@ require('mason-lspconfig').setup({
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+require'lspconfig'.clangd.setup{}
 require'lspconfig'.marksman.setup {
     capabilities = capabilities,
     on_attach = on_attach,
