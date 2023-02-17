@@ -162,9 +162,11 @@ end
 
 local servers = {
     "clangd",
+    "lua_ls",
     "marksman",
+    "omnisharp",
+    "perlnavigator",
     "rust_analyzer",
-    "sumneko_lua",
     "texlab",
 }
 
@@ -173,17 +175,33 @@ require('mason-lspconfig').setup({
     ensure_installed = servers
 })
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require'lspconfig'.clangd.setup{}
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+require'lspconfig'.clangd.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
 require'lspconfig'.marksman.setup {
     capabilities = capabilities,
     on_attach = on_attach,
+}
+require'lspconfig'.perlnavigator.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { "perlnavigator", "--stdio" },
+}
+require'lspconfig'.omnisharp.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { "omnisharp" },
+    enable_editorconfig_support = true,
+    enable_roslyn_analyzers = true,
+    enable_import_completion = true,
 }
 require'lspconfig'.rust_analyzer.setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
-require'lspconfig'.sumneko_lua.setup {
+require'lspconfig'.lua_ls.setup {
     settings = {
         Lua = {
             diagnostics = {
