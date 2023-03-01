@@ -3,7 +3,7 @@
     "spacing": 4,
     "modules-left": ["custom/applications", "sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "idle_inhibitor", "pulseaudio", "network", "temperature", "backlight", "battery", "clock", "custom/powermenu"],
+    "modules-right": ["tray", "idle_inhibitor", "pulseaudio", "network", "temperature", "backlight", "battery", "clock",  "custom/notification", "custom/powermenu"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -72,6 +72,26 @@
     "custom/powermenu": {
         "on-click": "rofi -show powermenu -modi powermenu:$HOME/.local/bin/rofi-power.sh",
         "format": " "
-    }
+    },
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>",
+        "none": "",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": ""
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
 }
 

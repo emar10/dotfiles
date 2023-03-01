@@ -9,13 +9,14 @@ experience using Sway.
 * `swaylock`: Screen locker.
 * `swayidle`: Auto locking.
 * `kanshi`: Used for display layout management.
-* `mako`: Notification service.
+* `swaync`: Notification service.
 * `waybar`: Pretty bar.
 * `kitty`: Default terminal, invoked with `Meta` + `Enter`.
 * `rofi`: Default app launcher. Use
   [lbonn's fork](https://github.com/lbonn/rofi) for now.
 * `pulseaudio` or `pipewire-pulse`: Audio server.
 * `pavucontrol`: Audio control.
+* `playerctl`: Media controls.
 * `networkmanager`: NetworkManager Manages the Network.
 * `light`: Backlight management.
 * `nerd-fonts-symbols`: Various icons.

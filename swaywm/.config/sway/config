@@ -26,7 +26,8 @@ exec swayidle -w \
           timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
           before-sleep 'swaylock -f -c 000000'
 exec_always pkill kanshi; exec kanshi
-exec_always pkill mako; exec mako
+exec swaync
+exec thunar --daemon
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ### Window Rules
@@ -65,6 +66,9 @@ bindsym $mod+d exec $menu
 
 # Window drag
 floating_modifier $mod normal
+
+# Togle notification center
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload

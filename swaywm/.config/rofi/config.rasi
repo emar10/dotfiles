@@ -6,7 +6,7 @@
  */
 
 configuration {
-    modi: "run,drun";
+    modi: "run,drun,window";
     lines: 5;
     font: "sans-serif 14";
     show-icons: true;
