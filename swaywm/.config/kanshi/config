@@ -1,3 +1,0 @@
-# General Kanshi config
-
-include $HOME/.config/kanshi/config.d/*

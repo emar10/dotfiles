@@ -1,0 +1,7 @@
+# friday Output Configuration
+
+### Built in display
+output eDP-1 {
+    mode 2256x1504
+    scale 1.5
+}

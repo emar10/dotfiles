@@ -165,7 +165,6 @@ local servers = {
     "lua_ls",
     "marksman",
     "omnisharp",
-    "perlnavigator",
     "rust_analyzer",
     "texlab",
 }
@@ -183,11 +182,6 @@ require'lspconfig'.clangd.setup{
 require'lspconfig'.marksman.setup {
     capabilities = capabilities,
     on_attach = on_attach,
-}
-require'lspconfig'.perlnavigator.setup{
-    capabilities = capabilities,
-    on_attach = on_attach,
-    cmd = { "perlnavigator", "--stdio" },
 }
 require'lspconfig'.omnisharp.setup {
     capabilities = capabilities,
