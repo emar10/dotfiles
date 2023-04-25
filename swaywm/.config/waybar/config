@@ -3,7 +3,7 @@
     "spacing": 4,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "idle_inhibitor", "pulseaudio", "network", "backlight", "battery", "clock"],
+    "modules-right": ["tray", "idle_inhibitor", "pulseaudio", "network", "backlight", "battery", "clock", "custom/powermenu"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -76,6 +76,11 @@
         },
         "on-click": "pavucontrol",
         "smooth-scrolling-threshold": 0.5,
+    },
+    "custom/powermenu": {
+        "format": "   ",
+        "tooltip": false,
+        "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu",
     },
 }
 
