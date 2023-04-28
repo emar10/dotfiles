@@ -42,6 +42,12 @@ bindsym Shift+XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $wob
 bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $wob
 
+# Screenshots
+bindsym $mod+Shift+s exec grim -g "$(slurp)"
+
+# Window switcher
+bindsym $mod+Tab exec rofi -show window
+
 # Movement
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
