@@ -3,7 +3,7 @@
     "spacing": 4,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "idle_inhibitor", "pulseaudio", "network", "backlight", "battery", "clock", "custom/powermenu"],
+    "modules-right": ["tray", "idle_inhibitor", "pulseaudio", "network", "backlight", "temperature", "battery", "clock", "custom/powermenu"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
