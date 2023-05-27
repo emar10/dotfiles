@@ -162,9 +162,11 @@ end
 
 local servers = {
     "clangd",
+    "jedi_language_server",
     "lua_ls",
     "marksman",
     "omnisharp",
+    "ruff_lsp",
     "rust_analyzer",
     "texlab",
 }
@@ -176,6 +178,14 @@ require('mason-lspconfig').setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require'lspconfig'.clangd.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+require'lspconfig'.jedi_language_server.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+require'lspconfig'.ruff_lsp.setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
