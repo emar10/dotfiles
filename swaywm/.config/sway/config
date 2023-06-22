@@ -15,6 +15,7 @@ set $wob $XDG_RUNTIME_DIR/wob.sock
 
 ### Output
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+exec kanshi
 
 ### Idle
 exec swayidle -w \
@@ -30,6 +31,7 @@ bindsym $mod+d exec $menu
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec rofi -show power-menu -modi power-menu:rofi-power-menu
+bindsym $mod+Shift+p exec rofimoji --files all
 
 # Volume Control
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $wob
