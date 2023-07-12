@@ -18,6 +18,9 @@ shell = "zsh"
 github = 'sindresorhus/pure'
 apply = ['fpath']
 
+[plugins.zsh-completions]
+github = 'zsh-users/zsh-completions'
+
 # For example:
 #
 # [plugins.base16]

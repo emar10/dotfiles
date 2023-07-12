@@ -4,10 +4,13 @@ SAVEHIST=1000
 bindkey -v
 zstyle :compinstall filename '/home/ethan/.zshrc'
 
-autoload -Uz compinit
-compinit
+path+=$HOME/.cargo/bin
+export PATH
 
 eval "$(sheldon source)"
+
+autoload -Uz compinit
+compinit
 
 autoload -Uz promptinit; promptinit
 prompt pure
