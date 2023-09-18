@@ -18,6 +18,8 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.showmode = false
+vim.opt.title = true
+vim.opt.guifont = "Iosevka:h12"
 
 
 -- Plugins
