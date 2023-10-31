@@ -26,6 +26,10 @@ exec swayidle -w \
          before-sleep 'swaylock -f -c 000000' \
          lock 'swaylock -f -c 000000'
 
+### Window Rules
+for_window [instance="Godot_Engine" title="(DEBUG)"] floating enable
+for_window [class="^.*"] inhibit_idle fullscreen for_window [app_id="^.*"] inhibit_idle fullscreen
+
 ### Key bindings
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
