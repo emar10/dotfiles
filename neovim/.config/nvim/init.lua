@@ -143,6 +143,7 @@ require('lazy').setup({
           },
         },
         rust_analyzer = {},
+        omnisharp = {},
       }
 
       local mason_lspconfig = require 'mason-lspconfig'
@@ -292,6 +293,16 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', telescope.resume, { desc = '[S]earch [R]esume' })
 
     end,
+  },
+
+  { 'github/copilot.vim',
+    config = function ()
+      vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+        expr = true,
+        replace_keycodes = false,
+      })
+      vim.g.copilot_no_tab_map = true
+    end
   },
 
   {
