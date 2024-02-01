@@ -14,6 +14,7 @@ set $menu rofi -show drun
 set $wob $XDG_RUNTIME_DIR/wob.sock
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec thunar --daemon
 
 ### Output
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
