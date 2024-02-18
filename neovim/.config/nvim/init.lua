@@ -144,6 +144,8 @@ require('lazy').setup({
         },
         rust_analyzer = {},
         omnisharp = {},
+        jdtls = {},
+        kotlin_language_server = {},
       }
 
       local mason_lspconfig = require 'mason-lspconfig'
@@ -312,7 +314,7 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'c', 'lua', 'python', 'rust', 'vimdoc', 'vim', 'bash' },
+      ensure_installed = { 'c', 'lua', 'python', 'rust', 'java', 'kotlin', 'vimdoc', 'vim', 'bash' },
       auto_install = true,
 
       highlight = { enable = true },
