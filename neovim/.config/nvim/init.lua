@@ -146,6 +146,7 @@ require('lazy').setup({
         omnisharp = {},
         jdtls = {},
         kotlin_language_server = {},
+        openscad_lsp = {},
       }
 
       local mason_lspconfig = require 'mason-lspconfig'
