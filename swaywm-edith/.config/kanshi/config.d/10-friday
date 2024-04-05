@@ -1,0 +1,4 @@
+profile default {
+    output eDP-2 enable position 0,0
+}
+
