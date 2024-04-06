@@ -146,13 +146,14 @@ bindsym $mod+r mode "resize"
 
 # Dropdown terminal
 set $dropdown kitty --class kitty-dropdown
-set $dropdown_resize resize set 150 ppt 40 ppt, move absolute position 0 0
+set $dropdown_resize resize set 100 ppt 40 ppt, move position 0 0
 
 for_window [app_id="kitty-dropdown"] {
     border pixel 2
     floating enable
     move to scratchpad
     scratchpad show
+    $dropdown_resize
 }
 bindsym $mod+grave exec swaymsg '[app_id="kitty-dropdown"] scratchpad show' || $dropdown \
     && sleep .1 && swaymsg '[app_id="kitty-dropdown"] $dropdown_resize'
