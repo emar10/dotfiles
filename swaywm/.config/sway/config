@@ -13,11 +13,12 @@ set $menu rofi -show drun
 
 set $wob $XDG_RUNTIME_DIR/wob.sock
 
+### Startup Applications
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec thunar --daemon
 
 ### Output
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Pictures/Wallpapers/wallpaper fill
 exec kanshi
 
 ### Idle
@@ -143,10 +144,35 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Dropdown terminal
+set $dropdown kitty --class kitty-dropdown
+set $dropdown_resize resize set 150 ppt 40 ppt, move absolute position 0 0
+
+for_window [app_id="kitty-dropdown"] {
+    border pixel 2
+    floating enable
+    move to scratchpad
+    scratchpad show
+}
+bindsym $mod+grave exec swaymsg '[app_id="kitty-dropdown"] scratchpad show' || $dropdown \
+    && sleep .1 && swaymsg '[app_id="kitty-dropdown"] $dropdown_resize'
+
 # Bar
 bar {
     swaybar_command waybar
 }
+
+# Theme
+include catppuccin-frappe
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+gaps inner 15
 
 include /etc/sway/config.d/*
 include $HOME/.config/sway/config.d/*
