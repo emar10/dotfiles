@@ -5,6 +5,7 @@ bindkey -v
 zstyle :compinstall filename '/home/ethan/.zshrc'
 
 path+=$HOME/.cargo/bin
+path+=$HOME/.local/bin
 export PATH
 
 eval "$(sheldon source)"
