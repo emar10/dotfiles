@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Get a list of Distrobox containers
+get_containers() {
+  distrobox_list=$(distrobox list --no-color | awk 'NR>1 {print $3}')
+  echo "$distrobox_list"
+}
+
+# Check if Neovim is available in the current environment
+check_system_nvim() {
+  if command -v nvim &>/dev/null; then
+    echo "System"
+  fi
+}
+
+containers=$(get_containers)
+system_option=$(check_system_nvim)
+
+# Construct the options list
+options=()
+while IFS= read -r container; do
+  options+=("$container" "$container")  # kdialog wants tag and item, just dupe the container name
+done <<< "$containers"
+
+# Add system option if available
+if [ -n "$system_option" ]; then
+  options+=("System" "System")
+fi
+
+# Prompt user for selection using kdialog
+graphical_choice=$(kdialog --menu "Select a container to open Neovide" "${options[@]}")
+
+# Check if the user made a choice
+if [ -z "$graphical_choice" ]; then
+  echo "No container selected. Exiting."
+  exit 1
+fi
+
+# Get the filename argument from the command line
+filename="$1"
+
+# Run Neovide with the selected option
+if [ "$graphical_choice" == "System" ]; then
+  exec ~/Applications/neovide.AppImage $filename
+else
+  exec ~/Applications/neovide.AppImage --neovim-bin "distrobox enter $graphical_choice -- nvim" $filename
+fi
