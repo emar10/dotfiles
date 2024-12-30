@@ -1,0 +1,22 @@
+# Determine plugin dir
+ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
+
+# zsh_unplugged init
+if [[ ! -d $ZPLUGINDIR/zsh_unplugged ]]; then
+  git clone --quiet https://github.com/mattmc3/zsh_unplugged $ZPLUGINDIR/zsh_unplugged
+fi
+source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
+
+# zsh_unplugged plugins
+repos=(
+  sindresorhus/pure
+  zsh-users/zsh-completions
+  zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-history-substring-search
+  zsh-users/zsh-autosuggestions
+)
+
+# load plugins
+plugin-load $repos
+
+autoload -Uz compinit && compinit
