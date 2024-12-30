@@ -1,0 +1,12 @@
+output 'Dell Inc. DELL U2720Q FHQ4V13' {
+    mode 3840x2160
+    scale 1.5
+    position 0 0
+}
+
+output 'HP Inc. HP E243 CNC0153S38' {
+    mode 1920x1080
+    position 2560 0
+    transform 270
+}
+
