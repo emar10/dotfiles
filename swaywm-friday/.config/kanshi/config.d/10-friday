@@ -1,9 +1,0 @@
-profile docked {
-    output 'Dell Inc. DELL U2720Q FHQ4V13' enable position 0,0 scale 1.5
-    output eDP-1 enable position 2560,0 scale 1.5
-}
-
-profile default {
-    output eDP-1 enable position 0,0
-}
-
