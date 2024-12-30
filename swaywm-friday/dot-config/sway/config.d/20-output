@@ -1,0 +1,7 @@
+output eDP-1 {
+    mode 2256x1504
+    scale 1.5
+}
+
+bindswitch --reload --locked lid:on output eDP-1 disable
+bindswitch --reload --locked lid:off output eDP-1 enable

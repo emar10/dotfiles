@@ -1,0 +1,16 @@
+include $HOME/.config/sway/colors/catppuccin-mocha
+
+font pango:Noto Sans Bold 10
+output * bg $surface2 solid_color
+
+
+gaps inner 10
+gaps outer 2
+
+# Target                title       bg      text    indicator   border
+client.focused          $teal       $teal   $base   $rosewater  $teal       
+client.focused_inactive $overlay0   $base   $text   $rosewater  $overlay0       
+client.unfocused        $overlay0   $base   $text   $rosewater  $overlay0       
+client.urgent           $peach      $base   $peach  $overlay0   $peach       
+client.placeholder      $overlay0   $base   $text   $overlay0   $overlay0       
+client.background       $base

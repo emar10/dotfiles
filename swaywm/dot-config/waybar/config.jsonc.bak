@@ -1,0 +1,135 @@
+{
+  "height": 30,
+  "spacing": 5,
+
+  "modules-left": [
+    "custom/launcher",
+    "sway/workspaces",
+    "sway/window",
+  ],
+  "modules-center": [
+    "clock",
+    "mpris",
+  ],
+  "modules-right": [
+    "tray",
+    "idle_inhibitor",
+    "power-profiles-daemon",
+    "network",
+    "pulseaudio",
+    "temperature",
+    "backlight",
+    "battery",
+    "custom/power"
+  ],
+
+  "custom/launcher": {
+    "format": "<span>󰣇</span>",
+    "on-click": "rofi -show drun",
+    "escape": false,
+    "tooltip": false,
+  },
+  "sway/workspaces": {
+    "active-only": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "<span>󰧨</span>",
+      "2": "<span></span>",
+    }
+  },
+  "sway/window": {
+    "format": "<span></span> {app_id}",
+  },
+
+  "clock": {
+    "format": "<span>󰥔</span> {:%a %d %b %r}",
+    "tooltip": false,
+    "interval": 1,
+  },
+  "mpris": {
+    "format": "{status_icon} {dynamic}",
+    "status-icons": {
+      "playing": "<span>󰝚</span>",
+      "paused": "<span>󰏤</span>",
+    },
+    "dynamic-len": 30,
+  },
+
+  "tray": {
+    "spacing": 10
+  },
+  "idle_inhibitor": {
+    "format": "<span>{icon}</span>",
+    "format-icons": {
+      "activated": "<span></span>",
+      "deactivated": "<span></span>"
+    }
+  },
+  "power-profiles-daemon": {
+    "format": "<span>{icon}</span>",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "pulseaudio": {
+    "format": "<span>{icon}</span> {volume}%",
+    "format-bluetooth": "<span>{icon}</span> {volume}%",
+    "format-bluetooth-muted": "<span>󰝟</span> {volume}%",
+    "format-muted": "<span>󰝟</span> {volume}%",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󱡏",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "<span>{icon}</span> {temperatureC}°C ",
+    "format-icons": ["", "", ""]
+  },
+  "backlight": {
+    "format": "<span>{icon}</span> {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span>{icon}</span> {capacity}%",
+    "format-full": "<span>{icon}</span> {capacity}%",
+    "format-charging": "<span>󱐋</span> {capacity}%",
+    "format-plugged": "<span></span> {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    "format-wifi": "<span></span>",
+    "format-ethernet": "<span>󰈀</span>",
+    "tooltip-format": "{ifname} via {gwaddr} 󰛳",
+    "format-linked": "{ifname} (No IP) 󰅛",
+    "format-disconnected": "<span>⚠</span>",
+  },
+  "custom/power": {
+    "format" : "<span>⏻</span>",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate"
+    }
+  }
+}

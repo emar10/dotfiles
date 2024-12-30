@@ -1,0 +1,142 @@
+{
+  "height": 30,
+  "spacing": 5,
+
+  "modules-left": [
+    "custom/launcher",
+    "sway/workspaces",
+    "sway/window",
+  ],
+  "modules-center": [
+    "clock",
+    "mpris",
+  ],
+  "modules-right": [
+    "tray",
+    "idle_inhibitor",
+    "power-profiles-daemon",
+    "network",
+    "pulseaudio",
+    "temperature",
+    "backlight",
+    "battery",
+    "custom/power"
+  ],
+
+  "custom/launcher": {
+    "format": "<span weight=\"normal\">󰣇</span>",
+    "on-click": "rofi -show drun",
+    "escape": false,
+    "tooltip-format": "Launcher",
+  },
+  "sway/workspaces": {
+    "active-only": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "<span weight=\"normal\">󰧨</span>",
+      "2": "<span weight=\"normal\"></span>",
+      "3": "<span weight=\"normal\"></span>",
+      "4": "<span weight=\"normal\">󰇮</span>",
+    }
+  },
+  "sway/window": {
+    // "format": "<span weight=\"normal\"></span> {app_id}",
+    "format": "{app_id}",
+    "icon": true,
+    "icon-size": 16,
+  },
+
+  "clock": {
+    "format": "<span weight=\"normal\">󰥔</span> {:%a %d %b %r}",
+    "tooltip": false,
+    "interval": 1,
+  },
+  "mpris": {
+    "format": "{status_icon} {dynamic}",
+    "status-icons": {
+      "playing": "<span weight=\"normal\">󰝚</span>",
+      "paused": "<span weight=\"normal\">󰏤</span>",
+    },
+    "dynamic-len": 30,
+    "interval": 1,
+  },
+
+  "tray": {
+    "spacing": 10
+  },
+  "idle_inhibitor": {
+    "format": "<span weight=\"normal\">{icon}</span>",
+    "format-icons": {
+      "activated": "<span weight=\"normal\"></span>",
+      "deactivated": "<span weight=\"normal\"></span>"
+    }
+  },
+  "power-profiles-daemon": {
+    "format": "<span weight=\"normal\">{icon}</span>",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "pulseaudio": {
+    "format": "<span weight=\"normal\">{icon}</span> {volume}%",
+    "format-bluetooth": "<span weight=\"normal\">{icon}</span> {volume}%",
+    "format-bluetooth-muted": "<span weight=\"normal\">󰝟</span> {volume}%",
+    "format-muted": "<span weight=\"normal\">󰝟</span> {volume}%",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󱡏",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "<span weight=\"normal\">{icon}</span> {temperatureC}°C ",
+    "format-icons": ["", "", ""]
+  },
+  "backlight": {
+    "format": "<span weight=\"normal\">{icon}</span> {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "tooltip": false,
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span weight=\"normal\">{icon}</span> {capacity}%",
+    "format-full": "<span weight=\"normal\">{icon}</span> {capacity}%",
+    "format-charging": "<span weight=\"normal\">󱐋</span> {capacity}%",
+    "format-plugged": "<span weight=\"normal\"></span> {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    "format-wifi": "<span weight=\"normal\"></span>",
+    "format-ethernet": "<span weight=\"normal\">󰈀</span>",
+    "tooltip-format": "{ifname} via {gwaddr} 󰛳",
+    "format-linked": "{ifname} (No IP) 󰅛",
+    "format-disconnected": "<span weight=\"normal\">⚠</span>",
+  },
+  "custom/power": {
+    "format" : "<span weight=\"normal\">⏻</span>",
+    "tooltip-format": "Power Menu",
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate"
+    }
+  }
+}

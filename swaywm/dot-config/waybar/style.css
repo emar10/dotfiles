@@ -1,0 +1,139 @@
+
+@import "colors/mocha.css";
+
+* {
+    font-family: "Symbols Nerd Font", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+window#waybar {
+    background: none;
+    color: @text;
+}
+
+.modules-right,
+.modules-center,
+.modules-left {
+    background-color: @base;
+    border: 2px solid @overlay0;
+}
+
+.modules-left {
+  /*border-radius: 0 0 4px 0;*/
+  border-width: 0 2px 2px 0;
+}
+
+.modules-center {
+  /*border-radius: 0 0 4px 4px;*/
+  border-width: 0 2px 2px 2px;
+}
+
+.modules-right {
+  /*border-radius: 0 0 0 4px;*/
+  border-width: 0 0 2px 2px;
+}
+
+button {
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+    text-shadow: none;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: @overlay0;
+    text-shadow: none;
+}
+
+#workspaces button {
+    padding: 0 5px;
+}
+
+#workspaces button.focused {
+    background-color: @teal;
+    color: @base;
+}
+
+#workspaces button.urgent {
+    background-color: @peach;
+}
+
+label.module,
+#window
+{
+    padding: 0 10px;
+}
+
+#workspaces {
+    margin: 0 4px;
+}
+
+#battery.charging, #battery.plugged {
+    background-color: @green;
+    color: @base;
+}
+
+@keyframes blink {
+    to {
+        background-color: @text;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @base;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon.performance {
+    background-color: @red;
+    color: @base;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: @green;
+    color: @base;
+}
+
+label:focus {
+    background-color: @base;
+}
+
+
+#network.disconnected {
+    background-color: @red;
+}
+
+
+#pulseaudio.muted {
+    background-color: @surface0;
+}
+
+#wireplumber.muted {
+    background-color: @surface0;
+}
+
+#temperature.critical {
+    background-color: @red;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @peach;
+}
+
+#idle_inhibitor.activated {
+    background-color: @teal;
+    color: @base;
+}
