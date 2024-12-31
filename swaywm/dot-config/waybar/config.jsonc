@@ -22,6 +22,9 @@
     "battery",
     "custom/power"
   ],
+  "include": [
+    "$HOME/.config/waybar/config.d/*.jsonc",
+  ],
 
   "custom/launcher": {
     "format": "<span weight=\"normal\">󰣇</span>",
