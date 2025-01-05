@@ -1,3 +1,6 @@
+# vars
+export EDITOR=nvim
+
 # Determine plugin dir
 ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
 
