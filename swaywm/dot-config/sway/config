@@ -125,6 +125,7 @@ assign [app_id="firefox"] workspace 2
 
 ### Startup applications
 exec thunar --daemon
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always killall wob; rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 
 
