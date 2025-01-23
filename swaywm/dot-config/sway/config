@@ -64,6 +64,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+## Workspace management
+bindsym $mod+Ctrl+$left move workspace to output left
+bindsym $mod+Ctrl+$right move workspace to output right
+bindsym $mod+Ctrl+$up move workspace to output up
+bindsym $mod+Ctrl+$down move workspace to output down
+
 ## Navigation
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
