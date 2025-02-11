@@ -22,9 +22,10 @@
     "battery",
     "custom/power"
   ],
-  "include": [
-    "$HOME/.config/waybar/config.d/*.jsonc",
-  ],
+  // Temporarily disable drop-in dir pending new release, see https://github.com/Alexays/Waybar/pull/3862
+  // "include": [
+  //   "$HOME/.config/waybar/config.d/*.jsonc",
+  // ],
 
   "custom/launcher": {
     "format": "<span weight=\"normal\">󰣇</span>",
