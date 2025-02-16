@@ -106,6 +106,12 @@ for_window [app_id="kitty-dropdown"] {
 bindsym $mod+grave exec swaymsg '[app_id="kitty-dropdown"] scratchpad show' || $dropdown \
     && sleep .1 && swaymsg '[app_id="kitty-dropdown"] $dropdown_resize'
 
+## Start kanshi
+exec kanshi
+exec_always kanshictl reload
+bindswitch --reload --locked lid:on exec kanshictl switch docked-closed
+bindswitch --reload --locked lid:off exec kanshictl switch docked
+
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d
 #  - /etc/sway/config.d
