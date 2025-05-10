@@ -9,3 +9,5 @@
 	defaultBranch = main
 [safe]
 	directory = *
+[diff]
+	tool = nvimdiff
