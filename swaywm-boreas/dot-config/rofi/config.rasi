@@ -1,0 +1,6 @@
+configuration {
+  modes: "window,drun,run,ssh";
+  terminal: "kitty";
+}
+
+@theme "boreas-launcher"
