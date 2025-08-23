@@ -1,0 +1,66 @@
+@import "catppuccin-macchiato.css";
+
+* {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  font-family: Noto Sans, Symbols Nerd Font Mono, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+}
+
+.modules-left .module {
+  margin-right: 8px;
+}
+
+.modules-right .module {
+  margin-left: 8px;
+}
+
+#workspaces,
+#clock,
+#window,
+#tray {
+  background: @base;
+  border: 2px solid @teal;
+  padding: 0px 5px;
+}
+
+#battery {
+  background: @base;
+  border-color: @teal;
+  border-style: solid;
+  border-width: 2px 2px 2px 0;
+  padding: 0px 5px;
+  margin-left: 0;
+}
+
+#idle_inhibitor {
+  background: @base;
+  border-color: @teal;
+  border-style: solid;
+  border-width: 2px 0 2px 2px;
+  padding: 0 5px;
+}
+
+#power-profiles-daemon,
+#backlight,
+#pulseaudio,
+#temperature {
+  background: @base;
+  border-color: @teal;
+  border-style: solid;
+  border-width: 2px 0 2px 0;
+  padding: 0px 5px;
+  margin-left: 0;
+}
