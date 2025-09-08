@@ -1,67 +1,98 @@
 {
+  "mode": "dock",
   "layer": "top",
-  "height": 20,
-  "spacing": 0,
-  "margin-top": 5,
-  "margin-right": 8,
-  "margin-left": 8,
-  "modules-left": [
-    "sway/workspaces",
-    "sway/mode",
-    "sway/window",
-  ],
-  "modules-center": [
-    "clock",
-  ],
-  "modules-right": [
-    "tray",
-    "idle_inhibitor",
-    "power-profiles-daemon",
-    "backlight",
-    "pulseaudio",
-    "temperature",
-    "keyboard-state",
-    "battery",
-  ],
-  "idle_inhibitor": {
-    "format": "<span font_weight=\"400\">{icon}</span>",
+  "reload_style_on_change": true,
+
+  "modules-left": ["custom/appmenu", "sway/workspaces", "sway/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "idle_inhibitor", "wireplumber", "group/perf", "group/powermenu"],
+
+  "custom/appmenu": {
+    "format": "󰀻",
+    "tooltip-format": "Applications",
+    "on-click": "rofi -modes drun -show drun"
+  },
+
+  "sway/workspaces": {
+    "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "1": "",
+      "2": "󰖟",
+      "3": "",
+      "4": "",
+      "default": "",
+      "focused": "󱗿",
+      "high-priority-named": ["1", "2", "3", "4"]
+    },
+    "persistent-workspaces": ["1", "2", "3", "4"]
+  },
+
+  "sway/window": {
+    "max-length": 50,
+    "icon": true,
+    "icon-size": 16 
+  },
+
+  "clock": {
+    "format": " {:%I:%M %p}",
+    "format-alt": "  {:%a %b %d %Y}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "format": {
+        "today": "<b><u>{}</u></b>"
+      }
     }
   },
-  "tray": {
-    "spacing": 10,
-  },
-  "clock": {
-    "format": "<span font_weight=\"400\"> </span>{:%I:%M %p}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "<span font_weight=\"400\"></span> {:%a %Y-%m-%d}"
-  },
-  "temperature": {
-    "critical-threshold": 80,
-    "format": "<span font_weight=\"400\">{icon}</span> {temperatureC}°C",
-    "format-icons": ["", "", ""]
-  },
-  "backlight": {
-    "format": "<span font_weight=\"400\">{icon}</span>",
-    "tooltip-format": "{percent}%",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
+
+  "group/powermenu": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
+      "children-class": "powermenu-child"
     },
-    "format": "<span font_weight=\"400\">{icon}</span> {capacity}%",
-    "format-full": "<span font_weight=\"400\">{icon}</span> {capacity}%",
-    "format-charging": "<span font_weight=\"400\">󱐋</span> {capacity}%",
-    "format-plugged": "<span font_weight=\"400\"></span> {capacity}%",
-    "format-alt": "<span font_weight=\"400\">{icon}</span> {time}",
-    "format-icons": ["", "", "", "", ""]
+    "modules": ["custom/power-shutdown", "custom/power-reboot", "custom/power-sleep", "custom/power-logout", "custom/power-lock"]
   },
+
+  "custom/power-shutdown": {
+    "format": "󰐥",
+    "tooltip-format": "Shutdown",
+    "on-click": "systemctl poweroff"
+  },
+
+  "custom/power-reboot": {
+    "format": "󰜉",
+    "tooltip-format": "Reboot",
+    "on-click": "systemctl reboot"
+  },
+
+  "custom/power-sleep": {
+    "format": "󰤄",
+    "tooltip-format": "Suspend",
+    "on-click": "systemctl suspend"
+  },
+
+  "custom/power-logout": {
+    "format": "󰍃",
+    "tooltip-format": "Logout",
+    "on-click": "swaymsg exit"
+  },
+
+  "custom/power-lock": {
+    "format": "󰌾",
+    "tooltip-format": "Lock",
+    "on-click": "loginctl lock-session"
+  },
+
+  "group/perf": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false
+    },
+    "modules": ["power-profiles-daemon", "temperature", "cpu", "memory"]
+  },
+
   "power-profiles-daemon": {
-    "format": "<span font_weight=\"400\">{icon}</span>",
+    "format": "{icon}",
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
@@ -71,21 +102,35 @@
       "power-saver": ""
     }
   },
-  "pulseaudio": {
-    "scroll-step": 5,
-    "format": "<span font_weight=\"400\">{icon}</span> {volume}%",
-    "format-bluetooth": "<span font_weight=\"400\">{icon}</span> {volume}%",
-    "format-bluetooth-muted": "<span font_weight=\"400\">󰝟 {icon}</span>",
-    "format-muted": "<span font_weight=\"400\">󰝟</span>",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "󱡏",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
-    },
+
+  "temperature": {
+    "format": " {temperatureC}°C"
+  },
+  
+  "cpu": {
+    "format": " {usage}%"
+  },
+
+  "memory": {
+    "format": "󰍛 {percentage}%"
+  },
+
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
     "on-click": "pavucontrol"
   },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰾪"
+    }
+  },
+
+  "tray": {
+    "spacing": 5
+  }
 }

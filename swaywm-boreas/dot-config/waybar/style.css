@@ -1,66 +1,112 @@
 @import "catppuccin-macchiato.css";
 
 * {
+  margin: 0;
   padding: 0;
-  border: none;
+  border: 0;
   border-radius: 0;
-  font-family: Noto Sans, Symbols Nerd Font Mono, sans-serif;
-  font-size: 16px;
-  font-weight: 900;
-  min-height: 0;
 }
 
 window#waybar {
-  background: transparent;
+  border-bottom: 2px solid @teal;
+  background-color: @base;
+  color: @text;
 }
 
-.modules-left,
-.modules-center,
-.modules-right {
+window#waybar > box {
+  margin-bottom: 2px;
 }
 
-.modules-left .module {
-  margin-right: 8px;
-}
-
-.modules-right .module {
-  margin-left: 8px;
-}
-
-#workspaces,
-#clock,
-#window,
-#tray {
-  background: @base;
+tooltip {
+  background-color: @base;
   border: 2px solid @teal;
-  padding: 0px 5px;
 }
 
-#battery {
-  background: @base;
-  border-color: @teal;
-  border-style: solid;
-  border-width: 2px 2px 2px 0;
-  padding: 0px 5px;
-  margin-left: 0;
+tooltip label {
+  color: @text;
 }
 
-#idle_inhibitor {
-  background: @base;
-  border-color: @teal;
-  border-style: solid;
-  border-width: 2px 0 2px 2px;
+#custom-appmenu {
+  padding: 0 5px;
+  background-color: @teal;
+  color: @base;
+}
+
+#workspaces {
+  background-color: @surface0;
   padding: 0 5px;
 }
 
-#power-profiles-daemon,
-#backlight,
-#pulseaudio,
-#temperature {
-  background: @base;
-  border-color: @teal;
-  border-style: solid;
-  border-width: 2px 0 2px 0;
-  padding: 0px 5px;
-  margin-left: 0;
+#workspaces button {
+  padding: 0 5px;
+  color: @overlay0;
+}
+
+#workspaces button.focused {
+  color: @teal;
+  background: linear-gradient(90deg, @surface0 0%, @overlay0 30%, @overlay0 70%, @surface0 100%);
+}
+
+#workspaces button.urgent {
+  color: @maroon;
+}
+
+#window {
+  padding: 0 5px;
+}
+
+#clock {
+  background-color: @teal;
+  color: @base;
+  padding: 0 5px;
+}
+
+#custom-power-shutdown {
+  padding: 0 5px;
+  background-color: @teal;
+  color: @base;
+}
+
+#custom-power-reboot,
+#custom-power-sleep,
+#custom-power-logout,
+#custom-power-lock
+{
+  padding: 0 5px;
+  background-color: @crust;
+}
+
+#power-profiles-daemon {
+  padding: 0 5px;
+  background-color: @surface0;
+}
+
+#temperature,
+#cpu,
+#memory
+{
+  padding: 0 5px;
+  background-color: @crust;
+}
+
+#wireplumber {
+  padding: 0 5px;
+  background-color: @surface0;
+}
+
+#wireplumber.muted {
+  color: @overlay0;
+}
+
+#idle_inhibitor {
+  padding: 0 5px;
+  background-color: @surface0;
+}
+
+#idle_inhibitor.activated {
+  color: @teal;
+}
+
+#tray {
+  padding: 0 5px;
 }
