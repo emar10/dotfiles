@@ -5,7 +5,7 @@
 
   "modules-left": ["custom/appmenu", "sway/workspaces", "sway/window"],
   "modules-center": ["clock"],
-  "modules-right": ["tray", "idle_inhibitor", "wireplumber", "group/perf", "group/powermenu"],
+  "modules-right": ["tray", "idle_inhibitor", "group/sound", "group/perf", "group/powermenu"],
 
   "custom/appmenu": {
     "format": "󰀻",
@@ -24,7 +24,13 @@
       "focused": "󱗿",
       "high-priority-named": ["1", "2", "3", "4"]
     },
-    "persistent-workspaces": ["1", "2", "3", "4"]
+    "all-outputs": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
+    }
   },
 
   "sway/window": {
@@ -115,10 +121,25 @@
     "format": "󰍛 {percentage}%"
   },
 
+  "group/sound": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false
+    },
+    "modules": ["wireplumber", "wireplumber#source"]
+  },
+
   "wireplumber": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟",
     "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "on-click": "pavucontrol"
+  },
+
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "󰍬 {volume}%",
+    "format-muted": "󰍭",
     "on-click": "pavucontrol"
   },
 

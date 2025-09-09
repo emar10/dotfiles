@@ -7,10 +7,18 @@
   border-radius: 0;
 }
 
+.module,
+#workspaces button {
+  padding: 0 5px;
+  min-width: 25px;
+  min-height: 25px;
+}
+
 window#waybar {
   border-bottom: 2px solid @teal;
   background-color: @base;
   color: @text;
+  font-size: 16px;
 }
 
 window#waybar > box {
@@ -27,18 +35,15 @@ tooltip label {
 }
 
 #custom-appmenu {
-  padding: 0 5px;
   background-color: @teal;
   color: @base;
 }
 
 #workspaces {
   background-color: @surface0;
-  padding: 0 5px;
 }
 
 #workspaces button {
-  padding: 0 5px;
   color: @overlay0;
 }
 
@@ -51,18 +56,12 @@ tooltip label {
   color: @maroon;
 }
 
-#window {
-  padding: 0 5px;
-}
-
 #clock {
   background-color: @teal;
   color: @base;
-  padding: 0 5px;
 }
 
 #custom-power-shutdown {
-  padding: 0 5px;
   background-color: @teal;
   color: @base;
 }
@@ -72,12 +71,10 @@ tooltip label {
 #custom-power-logout,
 #custom-power-lock
 {
-  padding: 0 5px;
   background-color: @crust;
 }
 
 #power-profiles-daemon {
-  padding: 0 5px;
   background-color: @surface0;
 }
 
@@ -85,12 +82,10 @@ tooltip label {
 #cpu,
 #memory
 {
-  padding: 0 5px;
   background-color: @crust;
 }
 
 #wireplumber {
-  padding: 0 5px;
   background-color: @surface0;
 }
 
@@ -98,15 +93,14 @@ tooltip label {
   color: @overlay0;
 }
 
+#wireplumber.source {
+  background-color: @crust;
+}
+
 #idle_inhibitor {
-  padding: 0 5px;
   background-color: @surface0;
 }
 
 #idle_inhibitor.activated {
   color: @teal;
-}
-
-#tray {
-  padding: 0 5px;
 }
