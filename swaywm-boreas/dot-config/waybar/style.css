@@ -97,6 +97,19 @@ tooltip label {
   background-color: @crust;
 }
 
+#battery {
+  background-color: @surface0;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @teal;
+}
+
+#battery.critical {
+  color: @red;
+}
+
 #idle_inhibitor {
   background-color: @surface0;
 }

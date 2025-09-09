@@ -5,7 +5,7 @@
 
   "modules-left": ["custom/appmenu", "sway/workspaces", "sway/window"],
   "modules-center": ["clock"],
-  "modules-right": ["tray", "idle_inhibitor", "group/sound", "group/perf", "group/powermenu"],
+  "modules-right": ["tray", "idle_inhibitor", "battery", "group/sound", "group/perf", "group/powermenu"],
 
   "custom/appmenu": {
     "format": "󰀻",
@@ -148,6 +148,17 @@
     "format-icons": {
       "activated": "󰅶",
       "deactivated": "󰾪"
+    }
+  },
+
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁽", "󰁾", "󰂀", "󰂁", "󰁹"],
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󱟢 {capacity}%",
+    "states": {
+      "warning": 30,
+      "critical": 10
     }
   },
 
