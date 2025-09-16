@@ -133,14 +133,16 @@
     "format": "{icon} {volume}%",
     "format-muted": "󰝟",
     "format-icons": ["󰕿", "󰖀", "󰕾"],
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   },
 
   "wireplumber#source": {
     "node-type": "Audio/Source",
     "format": "󰍬 {volume}%",
     "format-muted": "󰍭",
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
   },
 
   "idle_inhibitor": {
