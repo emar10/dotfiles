@@ -23,4 +23,7 @@ repos=(
 # load plugins
 plugin-load $repos
 
+# aliases
+alias nvim-test='NVIM_APPNAME=nvim-test nvim'
+
 autoload -Uz compinit && compinit
