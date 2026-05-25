@@ -1,5 +1,21 @@
 {
   "plugins": {
+    "arborist.nvim": {
+      "rev": "fdeef56c2840c6772b9f68c5774ed87e9340ec7d",
+      "src": "https://github.com/arborist-ts/arborist.nvim"
+    },
+    "mason.nvim": {
+      "rev": "bb639d4bf385a4d89f478b83af4d770be05ab7eb",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.comment": {
+      "rev": "fc87ba6554f182161d9a4bab5017c575571f000f",
+      "src": "https://github.com/nvim-mini/mini.comment"
+    },
+    "mini.nvim": {
+      "rev": "44657837c7338e52727facc85c1d95bec1f6bd7c",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
     "mini.pick": {
       "rev": "4522d9ab65224675df2cf1ede8c12f0410aae2be",
       "src": "https://github.com/nvim-mini/mini.pick"
@@ -7,6 +23,10 @@
     "nvim": {
       "rev": "8edd468af4d63212b84d69b2ddb5ffc9023ef5eb",
       "src": "https://github.com/catppuccin/nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "a4ed4e761c400849e8c9f8bda33e5083f890268c",
+      "src": "https://github.com/neovim/nvim-lspconfig"
     }
   }
 }
