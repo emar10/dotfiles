@@ -17,11 +17,15 @@ vim.o.cursorline = true
 
 -- keymaps
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('n', '<Leader>ff', ':Pick files<cr>', { desc = '[f]ind [f]iles' })
+vim.keymap.set('n', '<Leader>sg', ':Pick grep_live<cr>', { desc = '[s]earch with [g]rep' })
 
 -- plugins
 vim.pack.add({
-  { src = 'https://github.com/catppuccin/nvim' }
+  { src = 'https://github.com/catppuccin/nvim' },
+  { src = 'https://github.com/nvim-mini/mini.pick' },
 })
+require('mini.pick').setup()
 
 vim.cmd.colorscheme 'catppuccin-nvim'
 
