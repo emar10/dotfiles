@@ -33,6 +33,7 @@ vim.pack.add({
   { src = 'https://github.com/mason-org/mason.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = "https://github.com/arborist-ts/arborist.nvim" },
+  { src = "https://github.com/chomosuke/typst-preview.nvim" },
 })
 
 -- mini.nvim
@@ -57,11 +58,14 @@ require('mini.tabline').setup()
 
 require('mason').setup()
 require('arborist').setup()
+require('typst-preview').setup({
+  dependencies_bin = { tinymist = 'tinymist' },
+})
 
 vim.cmd.colorscheme 'catppuccin-nvim'
 
 -- lsp
-vim.lsp.enable({ 'lua_ls' })
+vim.lsp.enable({ 'lua_ls', 'tinymist' })
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
